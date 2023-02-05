@@ -1,22 +1,21 @@
 version: "3"
 services:
   nginx:
+    image: nginx:latest
+    volumes:
+      - ./landing_page/html:/usr/share/nginx/html
+    ports:
+      - "80:80"
+  kiwix:
+    image: kiwix/kiwix-serve
+    command: 'wikipedia_en_100_nopic.zim'
+    ports:
+      - '8888:8080'
+    volumes:
+      - "./kiwix/content:/data"
+  kolibri:
     build:
       context: .
-      dockerfile: landing_page/Dockerfile
-    volumes:
-      - ./landing_page/html:/var/www/html
-    ports: 
-      - "8080:80"
-    networks:
-      - internal
-  php:
-    image: php:fpm-alpine
-    volumes:
-      - ./landing_page/html:/var/www/html
-    networks:
-      - internal
-networks:
-  internal:
-    driver: bridge
-
+      dockerfile: kolibri/Dockerfile
+    ports:
+      - '8080:8080'
