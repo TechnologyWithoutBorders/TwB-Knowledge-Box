@@ -4,18 +4,17 @@ services:
     image: nginx:latest
     volumes:
       - ./landing_page/html:/usr/share/nginx/html
-    ports:
-      - "80:80"
+    network_mode: "host"
   kiwix:
     image: kiwix/kiwix-serve
     command: 'wikipedia_en_100_nopic.zim'
-    ports:
-      - '8888:8080'
     volumes:
       - "./kiwix/content:/data"
+    network_mode: "host"
   kolibri:
     build:
       context: .
       dockerfile: kolibri/Dockerfile
-    ports:
-      - '8080:8080'
+    environment:
+      - KOLIBRI_HTTP_PORT=8888
+    network_mode: "host"

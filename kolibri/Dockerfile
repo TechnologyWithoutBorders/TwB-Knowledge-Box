@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.13
 
 RUN apk update && apk add \
     bash \
@@ -11,6 +11,4 @@ RUN chmod +x kolibri
 
 RUN mkdir /root/.kolibri
 
-EXPOSE 8080
-
-CMD ./kolibri start && tail -f /root/.kolibri/server.log
+CMD python3 ./kolibri start && tail -f /root/.kolibri/logs/kolibri.txt
