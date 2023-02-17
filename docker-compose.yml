@@ -5,12 +5,14 @@ services:
     volumes:
       - ./landing_page/html:/usr/share/nginx/html
     network_mode: "host"
+    restart: always
   kiwix:
     image: kiwix/kiwix-serve
     command: 'wikipedia_en_100_nopic.zim'
     volumes:
       - "./kiwix/content:/data"
     network_mode: "host"
+    restart: always
   kolibri:
     build:
       context: .
@@ -18,3 +20,4 @@ services:
     environment:
       - KOLIBRI_HTTP_PORT=8888
     network_mode: "host"
+    restart: always
