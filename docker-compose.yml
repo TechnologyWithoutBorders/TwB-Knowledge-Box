@@ -4,14 +4,18 @@ services:
     image: nginx:latest
     volumes:
       - ./landing_page/html:/usr/share/nginx/html
-    network_mode: "host"
+    network_mode: "bridge"
+    ports:
+      - "80:80"
     restart: always
   kiwix:
     image: kiwix/kiwix-serve
     command: 'wikipedia_en_100_nopic.zim'
     volumes:
       - "./kiwix/content:/data"
-    network_mode: "host"
+    network_mode: "bridge"
+    ports:
+      - "8080:8080"
     restart: always
   kolibri:
     build:
@@ -19,5 +23,7 @@ services:
       dockerfile: kolibri/Dockerfile
     environment:
       - KOLIBRI_HTTP_PORT=8888
-    network_mode: "host"
+    network_mode: "bridge"
+    ports:
+      - "8888:8888"
     restart: always
