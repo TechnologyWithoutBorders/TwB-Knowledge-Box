@@ -10,7 +10,7 @@ services:
     restart: always
   kiwix:
     image: kiwix/kiwix-serve
-    command: 'wikipedia_en_100_nopic.zim'
+    command: 'wikipedia_content.zim'
     volumes:
       - "./kiwix/content:/data"
     network_mode: "bridge"
