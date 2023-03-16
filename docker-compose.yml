@@ -23,6 +23,8 @@ services:
       dockerfile: kolibri/Dockerfile
     environment:
       - KOLIBRI_HTTP_PORT=8888
+    volumes:
+      - "./kolibri/data:/root/.kolibri"
     network_mode: "bridge"
     ports:
       - "8888:8888"

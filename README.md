@@ -4,4 +4,4 @@ The Knowledge Box is an offline server that brings educational content to school
 
 ## Content Storage
 - **Kiwix:** Save zim files in ```kiwix/content``` and add desired images to the kiwix command in ```docker-compose.yml```.
-- **Kolibri:** Downloaded content channels are saved within the container.
+- **Kolibri:** All data including content is stored in ```kolibri/data```.

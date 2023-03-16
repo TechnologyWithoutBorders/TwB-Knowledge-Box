@@ -1,1 +1,4 @@
-*.zim
+kolibri/data/*
+!kolibri/data/.gitkeep
+kiwix/content/*
+!kiwix/content/.gitkeep
