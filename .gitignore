@@ -1,4 +1,5 @@
 kolibri/data/*
 !kolibri/data/.gitkeep
+!kolibri/data/options.ini
 kiwix/content/*
 !kiwix/content/.gitkeep

@@ -21,11 +21,10 @@ services:
     build:
       context: .
       dockerfile: kolibri/Dockerfile
-    environment:
-      - KOLIBRI_HTTP_PORT=8888
     volumes:
       - "./kolibri/data:/root/.kolibri"
     network_mode: "bridge"
     ports:
       - "8888:8888"
+      - "56789:56789"
     restart: always
