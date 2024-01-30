@@ -9,7 +9,7 @@ services:
       - "80:80"
     restart: always
   kiwix:
-    image: kiwix/kiwix-serve
+    image: ghcr.io/kiwix/kiwix-serve
     command: 'wikipedia_content.zim'
     volumes:
       - "./kiwix/content:/data"
