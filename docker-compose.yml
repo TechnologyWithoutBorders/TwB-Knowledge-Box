@@ -1,7 +1,7 @@
 version: "3"
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:1.27.3
     volumes:
       - ./landing_page/html:/usr/share/nginx/html
     ports:
@@ -9,7 +9,7 @@ services:
     restart: always
   kiwix:
     image: ghcr.io/kiwix/kiwix-serve
-    command: '/data/wikipedia_en_for_schools_maxi_2024-06.zim'
+    command: '/data/wikipedia_en_100_nopic.zim'
     volumes:
       - "./kiwix/content:/data"
     ports:
@@ -35,13 +35,14 @@ services:
       - MARIADB_DATABASE=bitnami_moodle
       - MARIADB_CHARACTER_SET=utf8mb4
       - MARIADB_COLLATE=utf8mb4_unicode_ci
+      - BITNAMI_DEBUG=true
     volumes:
       - 'mariadb_data:/bitnami/mariadb'
     ports:
        - "3306:3306"
     restart: always
   moodle:
-    image: docker.io/bitnami/moodle:latest
+    image: docker.io/bitnami/moodle:4.5.1
     ports:
       - '81:8080'
       - '443:8443'
@@ -52,6 +53,9 @@ services:
       - MOODLE_DATABASE_NAME=bitnami_moodle
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
+      - MOODLE_USERNAME=admin
+      - MOODLE_PASSWORD=adminpass
+      - BITNAMI_DEBUG=true
     volumes:
       - 'moodle_data:/bitnami/moodle'
       - 'moodledata_data:/bitnami/moodledata'
