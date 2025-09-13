@@ -9,7 +9,7 @@ services:
     restart: always
   kiwix:
     image: ghcr.io/kiwix/kiwix-serve
-    command: '/data/wikipedia_en_100_nopic.zim'
+    command: '/data/*.zim'
     volumes:
       - "./kiwix/content:/data"
     ports:
