@@ -24,6 +24,8 @@ services:
     ports:
       - "8888:8888"
       - "56789:56789"
+    environment:
+      - TZ=Europe/Berlin
     restart: always
   mariadb:
     image: docker.io/bitnami/mariadb:11.4
