@@ -28,7 +28,7 @@ services:
       - TZ=Europe/Berlin
     restart: always
   mariadb:
-    image: docker.io/bitnami/mariadb:11.4
+    image: docker.io/bitnami/mariadb:12.0.2
     container_name: mariadb
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
@@ -44,7 +44,7 @@ services:
        - "3306:3306"
     restart: always
   moodle:
-    image: docker.io/bitnami/moodle:4.5.1
+    image: docker.io/bitnami/moodle:5.0.2
     ports:
       - '81:8080'
       - '443:8443'
