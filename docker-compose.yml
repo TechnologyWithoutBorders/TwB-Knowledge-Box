@@ -21,6 +21,7 @@ services:
       dockerfile: kolibri/Dockerfile
     volumes:
       - "./kolibri/data:/root/.kolibri"
+      - "/media:/media"
     ports:
       - "8888:8888"
       - "56789:56789"
