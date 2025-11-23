@@ -6,3 +6,5 @@ The Knowledge Box is an offline server that brings educational content to school
 - **Kiwix:** Save zim files in ```kiwix/content```.
 - **Kolibri:** All data including content is stored in ```kolibri/data```.
 - **Moodle:** All data is stored in persistent docker volumes.
+
+Note: When using Docker for Windows, it may be required to disable/configure the firewall!
